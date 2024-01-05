@@ -15,7 +15,7 @@ $car=new car("cars");
         </div>
         <div class="inner-header">
             <div></div>
-            <h1>دسته بندی</h1>
+            <h1>خودروها</h1>
             <div class="back">
                 <a href="add-car.php">افزودن خودروی جدید</a>
             </div>
@@ -23,14 +23,18 @@ $car=new car("cars");
                 <tr>
                     <td>حذف</td>
                     <td>ویرایش</td>
+                    <td>کشور</td>
+                    <td>برند</td>
                     <td>نام خودرو</td>
                     <td>شماره</td>
                 </tr>
                 <?php
-                foreach ($car->select() as $vec){
+                foreach ($car->selectSpecial() as $vec){
                     echo "<tr>
                 <td><a href='delete-category.php?id={$vec["id"]}'>حذف</a></td>
                 <td><a href='update-category.php?id={$vec["id"]}'>ویرایش</a></td>
+                <td>{$vec["country"]}</td>
+                <td>{$vec["brand"]}</td>
                 <td>{$vec["title"]}</td>
                 <td>{$vec["id"]}</td>
                 </tr>

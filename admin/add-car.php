@@ -1,6 +1,8 @@
 <?php
 require_once "../layout/admin-header.php";
 showHeader("main2");
+require_once "Brands.php";
+$brand=new brand("Brands");
 ?>
     <div class="header">
         <div class="panel">
@@ -18,6 +20,14 @@ showHeader("main2");
                 <div>
                     <label for="title">عنوان</label>
                     <input type="text" name="title" id="title" dir="rtl">
+                    <label for="brand">برند</label>
+                    <select name="brand" id="brand">
+                        <?php
+                        foreach ($brand->select() as $br){
+                            echo "<option value='{$br["id"]}'>{$br["title"]}</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
                 <input type="submit" value="افزودن" class="add">
             </form>
